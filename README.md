@@ -1,4 +1,4 @@
-# Rails7 Primer
+# Rails v7 Primer
 
 This project is being developed as a playground for the stuff I learn as
 I upskill on Ruby on Rails v7.

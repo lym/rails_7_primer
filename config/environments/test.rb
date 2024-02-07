@@ -8,6 +8,10 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Prevent sprockets from using sass mode and SassC gem (which is based on
+  # deprecated LibSass library) in assets:precompile step
+  config.assets.css_compressor = nil
+
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
 
