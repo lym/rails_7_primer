@@ -2,8 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Rails v7 Primer
-    %title= "#{yield(:title)} | Rails v7 Primer"
+    %title= full_title(yield(:title))
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
