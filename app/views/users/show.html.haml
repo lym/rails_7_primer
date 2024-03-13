@@ -1,0 +1,15 @@
+- provide(:title, @user.name)
+
+%aside{id: "default-sidebar", class: "fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0", "aria-label": "Sidebar"}
+  %div{class: "h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800"}
+    %ul{class: "space-y-2 font-medium"}
+      %li
+        %section{class: "relative py-16 bg-blueGray-200"}
+          %div{class: "py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6"}
+            = image_tag 'lym_office_2023', alt: @user.name, class: "block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0"
+            %div{class: "text-center space-y-2 sm:text-left"}
+              %div{class: "space-y-0.5"}
+                %p{class: "text-lg text-black font-semibold"}
+                  = @user.name
+                %p{class: "text-slate-500 font-medium"}
+                  500 followers | 50 following
