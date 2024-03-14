@@ -1,5 +1,32 @@
 - provide(:title, 'Register')
 
-%div
-  %h1{class: "font-bold text-4xl"} Signup
-  %p This is the user registration page
+%div{class: "py-12"}
+  %h2{class: "font-bold text-4xl"} Signup
+  %div{class: "mt-8 max-w-md"}
+    %div{class: "grip grid-cols-1 gap-6"}
+      = form_with(model: @user) do |f|
+        = f.label :name, class: "block" do
+          %span{class: "text-gray-700"} Name
+        = f.text_field :name,
+          class: "mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0",
+          placeholder: ""
+
+        = f.label :email, class: "block" do
+          %span{class: "text-gray-700"} Email
+        = f.email_field :email,
+            class: "mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0",
+            placeholder: "you@example.com"
+
+        = f.label :password, class: "block" do
+          %span{class: "text-gray-700"} Password
+        = f.password_field :password,
+            class: "mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0",
+            placeholder: ""
+
+        = f.label :password_confirmation, class: "block" do
+          %span{class: "text-gray-700"} Password Confirmation
+        = f.password_field :password_confirmation,
+            class: "mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0",
+            placeholder: ""
+        = f.submit 'Create Account',
+          class: "mt-1  mx-auto lg:mx-0 hover:bg-blue-200 bg-white text-gray-800 font-bold rounded my-6 py-4 px-8 shadow-lg"
