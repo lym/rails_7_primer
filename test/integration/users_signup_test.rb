@@ -38,5 +38,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
     assert_select 'div.field_with_errors', 0
+    follow_redirect!
+    assert_template 'users/show'
+    assert is_logged_in?
   end
 end
