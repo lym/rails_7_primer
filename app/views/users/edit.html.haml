@@ -1,0 +1,11 @@
+- provide(:title, 'Edit')
+
+%div{class: "py-12"}
+  %h2{class: "font-bold text-4xl"} Update your profile
+  = render 'form'
+
+  %div{class: "flex items-center gap-4"}
+    = image_tag 'lym_office_2023', alt: @user.name, class: "w-20 h-20 rounded-full"
+    %div{class: "font-medium dark:text-white"}
+      %div
+        = link_to 'Change', "_blank", rel: 'noopener'
