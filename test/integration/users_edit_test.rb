@@ -6,6 +6,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "user enters invalid information in edit form" do
+    log_in_as @user
     get edit_user_path(@user)
     assert_template 'users/edit'
     patch(
@@ -22,6 +23,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "user enters valid information in edit form" do
+    log_in_as @user
     get edit_user_path(@user)
     assert_template 'users/edit'
     name = "John Smith"
