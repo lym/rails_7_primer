@@ -43,4 +43,27 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal name, @user.name
     assert_equal email, @user.email
   end
+
+  test "user is redirected to where they initially wanted to go after logging in" do
+    get edit_user_path(@user)
+    log_in_as @user
+    assert_redirected_to edit_user_url(@user)
+    # assert_template 'users/edit'
+    name = "John Smith"
+    email = "jsmith@spies.com"
+    patch(
+      user_path(@user),
+      params: {
+        user: {
+          name: name, email: email, password: '', password_confirmation: ''
+        }
+      }
+    )
+
+    assert_not flash.empty?
+    assert_redirected_to @user
+    @user.reload
+    assert_equal name, @user.name
+    assert_equal email, @user.email
+  end
 end
