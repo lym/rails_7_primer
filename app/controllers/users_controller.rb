@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :index, :update]
   before_action :correct_user, only: [:edit, :update]
 
   def create
@@ -16,6 +16,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def index
   end
 
   def new
