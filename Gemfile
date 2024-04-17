@@ -48,6 +48,7 @@ gem 'rexml', '~> 3.2', '>= 3.2.6'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+  gem 'faker', '~> 3.3', '>= 3.3.1'
   gem 'haml-rails', '~> 2.1'
   gem 'tailwindcss-rails', '~> 2.3'
 end
