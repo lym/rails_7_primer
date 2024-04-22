@@ -1,6 +1,8 @@
 - provide(:title, "All Users")
 %h1{class: "text-4xl font-extrabold dark:text-white"} All Users
 
+= will_paginate
+
 %ul{class: "max-w-md divide-y divide-gray-200 dark:divide-gray-700"}
   - @users.each do |user|
     %li{class: "pb-3 sm:pb-4"}
@@ -12,3 +14,5 @@
             = link_to user.name, user
           %p{class: "text-sm text-gray-500 truncate dark:text-gray-400"}
             = user.email
+
+= will_paginate

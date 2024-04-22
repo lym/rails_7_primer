@@ -10,6 +10,7 @@ gem "sprockets-rails"
 
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
+gem 'will_paginate', '~> 4.0'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
