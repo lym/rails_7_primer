@@ -9,6 +9,7 @@
 User.create!(
   name: 'John Smith',
   email: 'jsmith@anonmail.com',
+  admin: true,
   password: 'weakpass',
   password_confirmation: 'weakpass'
 )
