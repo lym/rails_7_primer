@@ -46,4 +46,21 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert flash.empty?
     assert_redirected_to root_url
   end
+
+  test "Guest users who attempt delete should be redirected to login page" do
+    assert_no_difference 'User.count' do
+      delete user_path(@user)
+    end
+    assert_response :see_other
+    assert_redirected_to login_url
+  end
+
+  test "Non-admins who attempt delete should be redirected to root URL" do
+    log_in_as @jane
+    assert_no_difference 'User.count' do
+      delete user_path(@user)
+    end
+    assert_response :see_other
+    assert_redirected_to root_url
+  end
 end
