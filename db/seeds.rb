@@ -11,7 +11,9 @@ User.create!(
   email: 'jsmith@anonmail.com',
   admin: true,
   password: 'weakpass',
-  password_confirmation: 'weakpass'
+  password_confirmation: 'weakpass',
+  activated: true,
+  activated_at: Time.zone.now
 )
 
 # Generate a couple more users
@@ -24,6 +26,8 @@ User.create!(
     name: name,
     email: email,
     password: password,
-    password_confirmation: password
+    password_confirmation: password,
+    activated: true,
+    activated_at: Time.zone.now
   )
 end

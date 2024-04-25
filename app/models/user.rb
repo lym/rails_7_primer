@@ -3,9 +3,10 @@ require 'bcrypt'
 class User < ApplicationRecord
   include BCrypt
 
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
 
-  before_save {self.email = email.downcase}
+  before_save :downcase_email
+  before_create :create_activation_digest
 
   validates :name, presence: true, length: {maximum: 50}
 
@@ -51,4 +52,14 @@ class User < ApplicationRecord
       SecureRandom.urlsafe_base64
     end
   end
+
+  private
+    def downcase_email
+      self.email = email.downcase
+    end
+
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
 end
