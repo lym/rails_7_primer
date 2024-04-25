@@ -6,10 +6,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      reset_session
-      log_in @user
-      flash[:success] = "Hey, you're in! Welcome, human."
-      redirect_to @user
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email for the account activation link"
+      redirect_to root_url
     else
       render 'new', status: :unprocessable_entity
     end

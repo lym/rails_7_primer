@@ -22,6 +22,10 @@
             %div{class: "p-4 ml-32 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 min-w-full", role: "alert"}
               %span{class: "font-medium"}
                 = message
+          - elsif message_type.eql? 'info'
+            %div{class: "p-4 ml-32 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 min-w-full", role: "alert"}
+              %span{class: "font-medium"}
+                = message
         = yield
     = render "layouts/footer"
     = debug(params) if Rails.env.development?
