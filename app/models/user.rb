@@ -60,6 +60,10 @@ class User < ApplicationRecord
     UserMailer.password_reset(self).deliver_now
   end
 
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+
   class << self
     # Returns the hash digest of the given string
     def digest(string)
