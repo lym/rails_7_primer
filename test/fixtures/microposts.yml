@@ -1,0 +1,19 @@
+second_most_recent:
+  content: "I just ate a mango!"
+  created_at: <%= 10.minutes.ago %>
+  user: john_doe
+
+fourth_most_recent:
+  content: "Check out my awesome site at https://www.salyms.com"
+  created_at: <%= 3.years.ago %>
+  user: john_doe
+
+third_most_recent:
+  content: "The Internet loves cat videos"
+  created_at: <%= 2.hours.ago %>
+  user: john_doe
+
+most_recent:
+  content: "This should be the most recent post"
+  created_at: <%= Time.zone.now %>
+  user: john_doe
