@@ -17,3 +17,10 @@ most_recent:
   content: "This should be the most recent post"
   created_at: <%= Time.zone.now %>
   user: john_doe
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+   content: <%= Faker::Lorem.sentence(word_count: 5) %>
+   created_at: <%= 42.days.ago %>
+   user: john_doe
+<% end %>

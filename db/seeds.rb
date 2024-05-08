@@ -31,3 +31,10 @@ User.create!(
     activated_at: Time.zone.now
   )
 end
+
+# Generate microposts for a subset of users.
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Movies::HarryPotter.quote[0,139]
+  users.each {|user| user.microposts.create!(content: content)}
+end

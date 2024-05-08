@@ -1,0 +1,11 @@
+%li{id: "micropost-#{micropost.id}", class: "pb-3 sm:pb-4"}
+  %div{class: "flex items-center space-x-4 rtl:space-x-reverse"}
+    %div{class: "flex-shrink-0"}
+      = image_tag 'tennis_racket_and_ball.png', alt: micropost.id, class: "w-16 h-16 rounded-full"
+    %div{class: "flex-1 min-w-0"}
+      %p{class: "text-sm font-medium text-gray-900 truncate dark:text-white"}
+        = link_to micropost.user.name, micropost.user
+      %p{class: "text-sm font-medium text-gray-900 truncate dark:text-white"}
+        = micropost.content
+      %p{class: "text-sm text-gray-500 truncate dark:text-gray-400"}
+        = "Posted #{time_ago_in_words(micropost.created_at)} ago."
