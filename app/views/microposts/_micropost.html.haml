@@ -9,3 +9,5 @@
         = micropost.content
       %p{class: "text-sm text-gray-500 truncate dark:text-gray-400"}
         = "Posted #{time_ago_in_words(micropost.created_at)} ago."
+        - if current_user?(micropost.user)
+          = link_to "delete", micropost, class: "font-medium text-blue-600 dark:text-blue-500", data: {"turbo-method": :delete, turbo_confirm: "Are you sure?"}
