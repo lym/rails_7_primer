@@ -1,7 +1,7 @@
 %div{class: "mt-8 max-w-md"}
   %div{class: "grip grid-cols-1 gap-6"}
     = form_with(model: @user) do |f|
-      = render "shared/error_messages"
+      = render "shared/error_messages", object: f.object
       = f.label :name, class: "block" do
         %span{class: "text-gray-700"} Name
       = f.text_field :name,
