@@ -18,6 +18,21 @@ most_recent:
   created_at: <%= Time.zone.now %>
   user: john_doe
 
+tennis_rules:
+  content: "Tennis is the bestest game in the world"
+  created_at: <%= 2.years.ago %>
+  user: jane_doe
+
+humans_are_cool:
+  content: "Human beings are so unbelievably awesome"
+  created_at: <%= 3.days.ago %>
+  user: jane_doe
+
+good_beats_evil:
+  content: "In a fight between good and evil, good always prevails"
+  created_at: <%= 10.minutes.ago %>
+  user: rossie_lee
+
 <% 30.times do |n| %>
 micropost_<%= n %>:
    content: <%= Faker::Lorem.sentence(word_count: 5) %>

@@ -19,4 +19,14 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :see_other
     assert_redirected_to login_url
   end
+
+  test "micropost being deleted doesn't belong to current user" do
+    log_in_as(users(:john_doe))
+    micropost = microposts(:tennis_rules)
+    assert_no_difference 'Micropost.count' do
+      delete micropost_path(micropost)
+    end
+    assert_response :see_other
+    assert_redirected_to root_url
+  end
 end
