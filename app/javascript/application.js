@@ -2,3 +2,4 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "flowbite/flowbite.turbo.min"
+import "custom/image_upload"
