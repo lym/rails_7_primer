@@ -7,7 +7,8 @@
         = link_to micropost.user.name, micropost.user
       %p{class: "text-sm font-medium text-gray-900 truncate dark:text-white"}
         = micropost.content
-        = image_tag micropost.image if micropost.image.attached?
+        - if micropost.image.attached?
+          = image_tag micropost.image.variant(:display)
       %p{class: "text-sm text-gray-500 truncate dark:text-gray-400"}
         = "Posted #{time_ago_in_words(micropost.created_at)} ago."
         - if current_user?(micropost.user)
