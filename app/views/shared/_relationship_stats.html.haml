@@ -1,0 +1,11 @@
+- @user ||= current_user
+%div
+  = link_to following_user_path(@user), class: "hover:bg-blue-200 text-blue-800 text-xs font-semibold me-2 px-2.5 py-0.5 dark:bg-gray-700 dark:text-blue-400 inline-flex items-center justify-center" do
+    %strong{id: "following", class: "pr-1"}
+      = @user.following.count
+    following
+
+  = link_to followers_user_path(@user), class: "hover:bg-blue-200 text-blue-800 text-xs font-semibold me-2 px-2.5 py-0.5 dark:bg-gray-700 dark:text-blue-400 inline-flex items-center justify-center" do
+    %strong{id: "followers", class: "pr-1"}
+      = @user.followers.count
+    followers
