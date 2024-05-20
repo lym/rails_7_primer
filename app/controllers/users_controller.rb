@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:destroy, :edit, :index, :update]
+  before_action(
+    :logged_in_user,
+    only: [:destroy, :edit, :following, :followers, :index, :update]
+  )
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
@@ -22,6 +25,20 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'relationships_index', status: :unprocessable_entity
+  end
+
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'relationships_index', status: :unprocessable_entity
   end
 
   def index
