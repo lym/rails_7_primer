@@ -97,4 +97,25 @@ class UserTest < ActiveSupport::TestCase
     john.follow john
     assert_not john.following? jane
   end
+
+  test "viewing posts in a feed" do
+    john = users(:john_doe)
+    jane = users(:jane_doe)
+    rossie = users(:rossie_lee)
+
+    # posts from followed user
+    rossie.microposts.each do |followed_post|
+      assert john.feed.include?(followed_post)
+    end
+
+    # own posts
+    john.microposts.each do |own_post|
+      assert john.feed.include?(own_post)
+    end
+
+    # posts from non-followed-user
+    jane.microposts.each do |non_followed_post|
+      assert_not john.feed.include?(non_followed_post)
+    end
+  end
 end
