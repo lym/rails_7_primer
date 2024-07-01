@@ -5,6 +5,5 @@ set -o errexit
 
 bundle install
 bundle exec rails assets:precompile
-bundle exec rake tailwindcss:build
 bundle exec rails assets:clean
 bundle exec rake db:migrate
